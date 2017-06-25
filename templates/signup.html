@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>Please fill in these fields to signup</h1>
+<br>
+
+{% from "_formhelpers.html" import render_field %}
+<form method=post>
+  <dl>
+    {{ render_field(form.username) }}
+    {{ render_field(form.email) }}
+    {{ render_field(form.password) }}
+    {{ render_field(form.confirm) }}
+
+  </dl>
+  <p><input type=submit value=Register>
+</form>
+</form>
+
+
+<!-- <form action="" method="post">
+
+  <p> Username: </p>
+  <input type="text" placeholder="Username" name="username" value="{{request.form.username }}">
+
+  <br>
+  <p> Password: </p>
+  <input type="password" placeholder="Password" name="password1" value="{{request.form.password1 }}">
+
+  <br>
+  <p> Retype in your password: </p>
+  <input type="password" placeholder="Retype Password" name="password2" value="{{request.form.password2 }}">
+
+  <br>
+  <p> Email: </p>
+  <input type="text" placeholder="Email" name="email" value="{{request.form.email }}">
+
+
+  <br>
+  <input class="btn btn-default" type="submit" value="Login">
+</form> -->
+
+{% endblock %}

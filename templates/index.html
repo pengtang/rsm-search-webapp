@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>Watchlist Matching Application</h1>
+<br>
+<form action="" method="post">
+  <input type="text" placeholder="Account holder name" name="name" value="{{request.form.name }}">
+  <input type="text" placeholder="Account holder address" name="address" value="{{request.form.address }}">
+  <input class="btn btn-default" type="submit" value="Search">
+</form>
+
+<h5>These are the data from the database that matches(either name or address)</h5>
+{% for match in matches %}
+  <strong>Name:</strong> {{ match[0] }} <br>
+  <strong>Address:</strong> {{ match[1] }} <br>
+<br>
+{% endfor %}
+
+<br>
+<p>Click <a href="/logout">here</a> to logout.</p>
+<br>
+
+<!-- <h3>Users that are registered:</h3>
+{% for user in users %}
+  <strong>User:</strong> {{ user.username }} <br>
+  <strong>Email:</strong> {{ user.email }} <br>
+<br>
+{% endfor %} -->
+
+{% endblock %}
