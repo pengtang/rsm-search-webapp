@@ -3,4 +3,5 @@ Jinja2==2.7.2
 MarkupSafe==0.23
 Werkzeug==0.9.4
 itsdangerous==0.24
-wsgiref==0.1.2
+SQLAlchemy==1.1.6
+WTForms==2.1
