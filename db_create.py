@@ -1,6 +1,6 @@
 from app import db
 from sqlalchemy import func, distinct, text
-from model import RegisteredUser
+from model import RegisteredUser, WatchlistPeople
 
 # create the database and the db table
 db.create_all()

@@ -7,19 +7,22 @@ from wtforms import Form, BooleanField, StringField, PasswordField, validators
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import func, distinct, text
 
+env = 'DEV'
 
 # create the application object
 app = Flask(__name__)
 
 # config
-app.secret_key = 'p@ssword'
-USER_TABLE_NAME = 'registered_user'
-#app.database = 'sample.db'
+import os
+#app.config.from_object('config.BaseConfig')
+conf = {
+    'DEV': 'config.DevelopmentConfig',
+    'PROD': 'config.CloudConfig'
+}
+os.environ['APP_SETTINGS'] = conf[env]
+app.config.from_object(os.environ['APP_SETTINGS'])
+user_table_name = app.config.get('USER_TABLE_NAME')
 
-
-
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://localhost:5432'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 from model import *
 
@@ -103,7 +106,7 @@ def login():
         form_username = request.form['username']
         form_password = request.form['password']
         username_exist_count = db.session.execute(text("SELECT count(*) FROM {0} WHERE username = '{1}' AND password = '{2}'"\
-            .format(USER_TABLE_NAME, form_username, form_password))).fetchall()[0][0]
+            .format(user_table_name, form_username, form_password))).fetchall()[0][0]
         # print(username_exist_count)
         user_exist = True if username_exist_count >=1 else False
         if not user_exist:
