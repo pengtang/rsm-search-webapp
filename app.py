@@ -7,19 +7,18 @@ from wtforms import Form, BooleanField, StringField, PasswordField, validators
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import func, distinct, text
 
-env = 'DEV'
-
 # create the application object
 app = Flask(__name__)
 
 # config
 import os
 #app.config.from_object('config.BaseConfig')
-conf = {
-    'DEV': 'config.DevelopmentConfig',
-    'PROD': 'config.CloudConfig'
-}
-os.environ['APP_SETTINGS'] = conf[env]
+# env = 'DEV'
+# conf = {
+#     'DEV': 'config.DevelopmentConfig',
+#     'PROD': 'config.CloudConfig'
+# }
+# os.environ['APP_SETTINGS'] = conf[env]
 app.config.from_object(os.environ['APP_SETTINGS'])
 user_table_name = app.config.get('USER_TABLE_NAME')
 
