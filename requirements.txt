@@ -3,7 +3,7 @@ appnope==0.1.0
 attrs==16.3.0
 Automat==0.5.0
 beautifulsoup4==4.4.1
-bleach==2.0.0
+bleach==3.1.2
 certifi==2017.4.17
 cffi==1.9.1
 chardet==3.0.4
