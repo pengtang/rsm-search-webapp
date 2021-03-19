@@ -31,7 +31,7 @@ ipywidgets==6.0.0
 itsdangerous==0.24
 jedi==0.10.2
 jieba3k==0.35.1
-Jinja2==2.7.2
+Jinja2==2.11.3
 jsonschema==2.6.0
 Mako==1.0.6
 MarkupSafe==0.23
