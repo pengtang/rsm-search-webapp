@@ -77,7 +77,7 @@ tornado==4.5.1
 traitlets==4.3.2
 Twisted==17.1.0
 Unidecode==0.4.20
-urllib3==1.21.1
+urllib3==1.26.5
 vcrpy==1.10.5
 virtualenv==15.1.0
 virtualenv-clone==0.2.6
